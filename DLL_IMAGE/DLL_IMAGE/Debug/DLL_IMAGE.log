@@ -1,4 +1,6 @@
 ﻿  pch.cpp
+D:\文字文件\113-2\影像處理\DLL_IMAGE\DLL_IMAGE\pch.cpp(14,38): warning C4552: '+': 未使用運算式結果
+D:\文字文件\113-2\影像處理\DLL_IMAGE\DLL_IMAGE\pch.cpp(17,49): warning C4552: '+': 未使用運算式結果
   dllmain.cpp
      正在建立程式庫 D:\文字文件\113-2\影像處理\DLL_IMAGE\Debug\DLL_IMAGE.lib 和物件 D:\文字文件\113-2\影像處理\DLL_IMAGE\Debug\DLL_IMAGE.exp
   DLL_IMAGE.vcxproj -> D:\文字文件\113-2\影像處理\DLL_IMAGE\Debug\DLL_IMAGE.dll

@@ -37,6 +37,7 @@
             this.NegativeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.MosaicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +90,8 @@
             // iPToolStripMenuItem
             // 
             this.iPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NegativeToolStripMenuItem});
+            this.NegativeToolStripMenuItem,
+            this.MosaicToolStripMenuItem});
             this.iPToolStripMenuItem.Name = "iPToolStripMenuItem";
             this.iPToolStripMenuItem.Size = new System.Drawing.Size(29, 20);
             this.iPToolStripMenuItem.Text = "&IP";
@@ -99,12 +101,20 @@
             // 
             this.NegativeToolStripMenuItem.Name = "NegativeToolStripMenuItem";
             this.NegativeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.NegativeToolStripMenuItem.Text = "Negative";
+            this.NegativeToolStripMenuItem.Text = "負片";
             this.NegativeToolStripMenuItem.Click += new System.EventHandler(this.NegativeToolStripMenuItem_Click);
             // 
             // oFileDlg
             // 
             this.oFileDlg.FileName = "openFileDialog1";
+            // 
+            // MosaicToolStripMenuItem
+            // 
+            this.MosaicToolStripMenuItem.Name = "MosaicToolStripMenuItem";
+            this.MosaicToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.MosaicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MosaicToolStripMenuItem.Text = "馬賽克";
+            this.MosaicToolStripMenuItem.Click += new System.EventHandler(this.MosaicToolStripMenuItem_Click);
             // 
             // DIPSample
             // 
@@ -137,5 +147,6 @@
         private System.Windows.Forms.OpenFileDialog oFileDlg;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem NegativeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MosaicToolStripMenuItem;
     }
 }

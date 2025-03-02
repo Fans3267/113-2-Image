@@ -24,11 +24,6 @@ namespace DIP
             InitializeComponent();
         }
 
-        [DllImport("DLL_IMAGE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int add(int a, int b);
-        [DllImport("DLL_IMAGE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int sub(int a, int b);
-
         private void MSForm_Load(object sender, EventArgs e)
         {
             bmp_dip(pBitmap, pictureBox1);

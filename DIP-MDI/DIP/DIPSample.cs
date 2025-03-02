@@ -20,9 +20,14 @@ namespace DIP
             InitializeComponent();
         }
 
-        [DllImport("DLL_IMAGE.dll", CallingConvention = CallingConvention.Cdecl)]
+        //負片
+        [DllImport("negative.dll", CallingConvention = CallingConvention.Cdecl)]
         unsafe public static extern void negative(int *f0,int w,int h,int *g0);
-        
+
+        //局部馬賽克
+        [DllImport("DLL_IMAGE.dll", CallingConvention = CallingConvention.Cdecl)]
+        unsafe public static extern void mosaic(int* f0, int w, int h, int* g0);
+
         Bitmap NpBitmap;
         int[] f;
         int[] g;
@@ -153,6 +158,34 @@ namespace DIP
         private void iPToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MosaicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] f;
+            int[] g;
+            foreach (MSForm cF in MdiChildren)
+            {
+                if (cF.Focused)
+                {
+                    f = bmp2array(cF.pBitmap);
+                    g = new int[w * h];
+                    unsafe
+                    {
+                        fixed (int* f0 = f) fixed (int* g0 = g)
+                        {
+                            mosaic(f0, w, h, g0);
+                        }
+                    }
+                    NpBitmap = array2bmp(g);
+                    break;
+                }
+            }
+            MSForm childForm = new MSForm();
+            childForm.MdiParent = this;
+            childForm.pf1 = stStripLabel;
+            childForm.pBitmap = NpBitmap;
+            childForm.Show();
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
