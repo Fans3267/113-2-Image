@@ -104,3 +104,12 @@ D:\文字文件\113-2\影像處理\DIP-MDI\DIP\obj\x86\Debug\DIP.pdb
 D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\DIP.exe.config
 D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\DIP.exe
 D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\DIP.pdb
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\ScottPlot.dll
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.Drawing.Common.dll
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.Numerics.Vectors.dll
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.ValueTuple.dll
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\ScottPlot.xml
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.Numerics.Vectors.xml
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\bin\x86\Debug\System.ValueTuple.xml
+D:\文字文件\113-2\影像處理\DIP-MDI\DIP\obj\x86\Debug\DIP.csproj.CopyComplete

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using ScottPlot;
 
 namespace DIP
 {
@@ -174,7 +175,77 @@ namespace DIP
                     {
                         fixed (int* f0 = f) fixed (int* g0 = g)
                         {
-                            mosaic(f0, w, h, g0);
+                            //mosaic(f0, w, h, g0);
+                        }
+                    }
+                    NpBitmap = array2bmp(g);
+                    break;
+                }
+            }
+            MSForm childForm = new MSForm();
+            childForm.MdiParent = this;
+            childForm.pf1 = stStripLabel;
+            childForm.pBitmap = NpBitmap;
+            childForm.Show();
+        }
+
+        private void HistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] f;
+            foreach (MSForm cF in MdiChildren)
+            {
+                if (cF.Focused)
+                {
+                    f = bmp2array(cF.pBitmap);
+
+                    int[] histogram = new int[256];
+                    foreach (int value in f)
+                    {
+                        if (value >= 0 && value < 256)
+                            histogram[value]++;
+                    }
+
+                    var plt = new ScottPlot.Plot(w, h);
+                    double[] xValues = new double[256];
+                    double[] yValues = Array.ConvertAll(histogram, x => (double)x);
+
+                    
+
+                    for (int i = 0; i < 256; i++)
+                    {
+                        xValues[i] = i;
+                    }
+
+                    plt.AddBar(yValues,xValues);
+                    plt.Title("直方圖");
+
+                    NpBitmap = plt.Render();
+
+                    break;
+                }
+            }
+            MSForm childForm = new MSForm();
+            childForm.MdiParent = this;
+            childForm.pf1 = stStripLabel;
+            childForm.pBitmap = NpBitmap;
+            childForm.Show();
+        }
+
+        private void histogramEqualizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] f;
+            int[] g;
+            foreach (MSForm cF in MdiChildren)
+            {
+                if (cF.Focused)
+                {
+                    f = bmp2array(cF.pBitmap);
+                    g = new int[w * h];
+                    unsafe
+                    {
+                        fixed (int* f0 = f) fixed (int* g0 = g)
+                        {
+                            //Histogram_equalize(f0, w, h, g0);
                         }
                     }
                     NpBitmap = array2bmp(g);
