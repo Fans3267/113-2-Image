@@ -39,7 +39,6 @@
             this.HistogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.histogramEqualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,8 +93,7 @@
             this.iPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NegativeToolStripMenuItem,
             this.MosaicToolStripMenuItem,
-            this.HistogramToolStripMenuItem,
-            this.histogramEqualizationToolStripMenuItem});
+            this.HistogramToolStripMenuItem});
             this.iPToolStripMenuItem.Name = "iPToolStripMenuItem";
             this.iPToolStripMenuItem.Size = new System.Drawing.Size(29, 20);
             this.iPToolStripMenuItem.Text = "&IP";
@@ -120,19 +118,12 @@
             // 
             this.HistogramToolStripMenuItem.Name = "HistogramToolStripMenuItem";
             this.HistogramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.HistogramToolStripMenuItem.Text = "長條圖";
+            this.HistogramToolStripMenuItem.Text = "直方圖";
             this.HistogramToolStripMenuItem.Click += new System.EventHandler(this.HistogramToolStripMenuItem_Click);
             // 
             // oFileDlg
             // 
             this.oFileDlg.FileName = "openFileDialog1";
-            // 
-            // histogramEqualizationToolStripMenuItem
-            // 
-            this.histogramEqualizationToolStripMenuItem.Name = "histogramEqualizationToolStripMenuItem";
-            this.histogramEqualizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.histogramEqualizationToolStripMenuItem.Text = "直方圖均衡化";
-            this.histogramEqualizationToolStripMenuItem.Click += new System.EventHandler(this.histogramEqualizationToolStripMenuItem_Click);
             // 
             // DIPSample
             // 
@@ -167,6 +158,5 @@
         private System.Windows.Forms.ToolStripMenuItem NegativeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MosaicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HistogramToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem histogramEqualizationToolStripMenuItem;
     }
 }

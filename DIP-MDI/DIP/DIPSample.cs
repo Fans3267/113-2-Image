@@ -196,6 +196,7 @@ namespace DIP
             {
                 if (cF.Focused)
                 {
+                    int total=w*h;
                     f = bmp2array(cF.pBitmap);
 
                     int[] histogram = new int[256];
@@ -205,50 +206,42 @@ namespace DIP
                             histogram[value]++;
                     }
 
-                    var plt = new ScottPlot.Plot(w, h);
+                    // 累積分佈函數
+                    int[] cdf = new int[256];
+                    cdf[0] = histogram[0];
+                    for (int i = 1; i < 256; i++)
+                    {
+                        cdf[i] = cdf[i - 1] + histogram[i];
+                    }
+
+                    // 均衡後的灰度值
+                    int[] equalizedValues = new int[256];
+                    for (int i = 0; i < 256; i++)
+                    {
+                        equalizedValues[i] = (cdf[i] * 255) / total;
+                    }
+
+                    int[] histogram_2 = new int[256];
+                    foreach (int value in equalizedValues)
+                    {
+                        if (value >= 0 && value < 256)
+                            histogram_2[value]++;
+                    }
+
                     double[] xValues = new double[256];
                     double[] yValues = Array.ConvertAll(histogram, x => (double)x);
-
-                    
 
                     for (int i = 0; i < 256; i++)
                     {
                         xValues[i] = i;
                     }
 
+                    var plt = new ScottPlot.Plot(512, 512);
                     plt.AddBar(yValues,xValues);
                     plt.Title("直方圖");
 
                     NpBitmap = plt.Render();
 
-                    break;
-                }
-            }
-            MSForm childForm = new MSForm();
-            childForm.MdiParent = this;
-            childForm.pf1 = stStripLabel;
-            childForm.pBitmap = NpBitmap;
-            childForm.Show();
-        }
-
-        private void histogramEqualizationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int[] f;
-            int[] g;
-            foreach (MSForm cF in MdiChildren)
-            {
-                if (cF.Focused)
-                {
-                    f = bmp2array(cF.pBitmap);
-                    g = new int[w * h];
-                    unsafe
-                    {
-                        fixed (int* f0 = f) fixed (int* g0 = g)
-                        {
-                            //Histogram_equalize(f0, w, h, g0);
-                        }
-                    }
-                    NpBitmap = array2bmp(g);
                     break;
                 }
             }
